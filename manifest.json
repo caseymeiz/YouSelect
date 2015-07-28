@@ -1,6 +1,6 @@
 {
     "manifest_version":2,
-    
+
     "name": "YouSelect",
     "description": "Video navigation with tab",
     "version": "0.1",
@@ -8,13 +8,13 @@
     "content_scripts": [
         {
         "matches": [
-            "http://www.youtube.com/*", "https://www.youtube.com/*" 
+            "http://www.youtube.com/*", "https://www.youtube.com/*"
         ],
-        "js": ["content.js"],
+        "js": ["jquery.js","content.js"],
         "css":["style.css"]
-        }   
+        }
     ],
-    
+
     "permissions": [
           "tabs"
     ],
