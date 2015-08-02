@@ -8,9 +8,12 @@
     "content_scripts": [
         {
         "matches": [
-            "http://www.youtube.com/*", "https://www.youtube.com/*"
+            "http://www.youtube.com/*",
+             "https://www.youtube.com/*"
         ],
-        "js": ["jquery.js","content.js"],
+        "js": ["jquery.js",
+            "youSelect.js"
+        ],
         "css":["style.css"]
         }
     ],
