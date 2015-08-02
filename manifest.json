@@ -11,7 +11,7 @@
             "http://www.youtube.com/*",
              "https://www.youtube.com/*"
         ],
-        "js": ["jquery.js",
+        "js": [
             "youSelect.js"
         ],
         "css":["style.css"]
