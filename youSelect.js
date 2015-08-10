@@ -46,18 +46,17 @@ YouSelect = {
 
 	cache_links: function(){
 		var url_path = document.location.pathname;
-		// s.links = document.querySelectorAll('.yt-lockup-content > h3 > a');
-		switch (url_path) {
-			case ('/'):
-				s.links = document.querySelectorAll('.yt-lockup-content > h3 > a');
-				break;
-			case ('/results'):
-				s.links = document.querySelectorAll('.yt-lockup-content > h3 > a');
-				break;
-			case ('/feed/subscriptions'):
-				s.links = document.querySelectorAll('li > div > div.feed-item-dismissable > div.expanded-shelf > ul > li > div > div > div > div.yt-lockup-content > h3 > a');
-				break;
+
+		var cases = {};
+		cases['/'] = '.yt-lockup-content > h3 > a';
+		cases['/results'] = '.yt-lockup-content > h3 > a';
+		cases['/user'] = 'div.feed-item-dismissable > div > div > div > div.lohp-newspaper-shelf.shelf-item.vve-check.yt-section-hover-container > div > div.lohp-large-shelf-container > div > div.vve-check > a';
+		cases['/watch'] = 'div.content-wrapper > a > span.title';
+		cases['/feed/subscriptions'] = 'li > div > div.feed-item-dismissable > div.expanded-shelf > ul > li > div > div > div > div.yt-lockup-content > h3 > a';
+		if (s.cases[url_path]){
+			s.links = document.querySelectorAll(s.cases[url_path]);
 		}
+
 	},
 
 	select_link: function(change){
