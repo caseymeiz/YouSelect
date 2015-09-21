@@ -20,10 +20,12 @@ YouSelect = {
 	handle_key: function (event){
 		if (s.is_active){
 			switch (event.keyCode) {
-				case (40): //down arrow
+				case (40): // down arrow
+				case (74): // j
 					self.select_link(1);
 					break;
-				case (38): //up arrow
+				case (38): // up arrow
+				case (75): // k
 					self.select_link(-1);
 					break;
 			}
@@ -45,19 +47,21 @@ YouSelect = {
 	},
 
 	cache_links: function(){
-		var url_path = document.location.pathname;
-		// s.links = document.querySelectorAll('.yt-lockup-content > h3 > a');
-		switch (url_path) {
+		var path_name = document.location.pathname;
+		var selector;
+
+		switch (path_name) {
 			case ('/'):
-				s.links = document.querySelectorAll('.yt-lockup-content > h3 > a');
-				break;
 			case ('/results'):
-				s.links = document.querySelectorAll('.yt-lockup-content > h3 > a');
+				selector = '.yt-lockup-content > h3 > a';
 				break;
 			case ('/feed/subscriptions'):
-				s.links = document.querySelectorAll('li > div > div.feed-item-dismissable > div.expanded-shelf > ul > li > div > div > div > div.yt-lockup-content > h3 > a');
+				selector = 'li > div > div.feed-item-dismissable > div.expanded-shelf > ul > li > div > div > div > div.yt-lockup-content > h3 > a';
 				break;
+			default:
+				console.log('unknown pathname: '+path_name);
 		}
+		s.links = document.querySelectorAll(selector);
 	},
 
 	select_link: function(change){
