@@ -9,3 +9,6 @@ YouSelect allows you to use the j, k, up arrow, and down arrow keys to navigate 
 |↩ return|Selects link|
 
 <img src="https://raw.github.com/caseymeiz/youselect/development/doc/demo.gif" width="400" />
+
+
+Currenlt works on home screen, results page, and subscriptions feed.
