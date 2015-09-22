@@ -36,7 +36,7 @@ YouSelect = {
 
 	activate: function() {
 		s.is_active = true;
-		self.cache_links();
+		self.update_links();
 		self.select_link();
 	},
 
@@ -46,7 +46,7 @@ YouSelect = {
 		s.index = 0;
 	},
 
-	cache_links: function(){
+	update_links: function(){
 		var path_name = document.location.pathname;
 		var selector;
 
@@ -59,16 +59,13 @@ YouSelect = {
 				selector = 'li > div > div.feed-item-dismissable > div.expanded-shelf > ul > li > div > div > div > div.yt-lockup-content > h3 > a';
 				break;
 			default:
-				console.log('unknown pathname: '+path_name);
+				console.log('unknown pathname: ' + path_name);
 		}
 		s.links = document.querySelectorAll(selector);
 	},
 
 	select_link: function(change){
 		var temporary_index = (s.index + change) || 0;
-		if (s.index%5 === 0){
-			self.cache_links();
-		}
 		if(temporary_index >= 0 && temporary_index <= s.links.length - 1){
 			self.deselect_link();
 			s.index = temporary_index;
@@ -77,6 +74,7 @@ YouSelect = {
 				s.links[s.index].focus();
 			}
 		}
+		self.update_links();
 	},
 	deselect_link: function() {
 		if (s.links[s.index]){
